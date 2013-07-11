@@ -1,4 +1,4 @@
-package com.dbs.training.service;
+package com.dbs.training.service.impl;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
 import com.dbs.training.model.Classinstance;
 import com.dbs.training.repository.ClassinstanceRepository;
+import com.dbs.training.service.ClassinstanceService;
 
 @Service
 public class ClassinstanceServiceImpl implements ClassinstanceService {

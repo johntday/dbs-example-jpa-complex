@@ -1,4 +1,4 @@
-package com.dbs.training.service;
+package com.dbs.training.service.impl;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
 import com.dbs.training.model.Clss;
 import com.dbs.training.repository.ClssRepository;
+import com.dbs.training.service.ClssService;
 
 @Service
 public class ClssServiceImpl implements ClssService {
