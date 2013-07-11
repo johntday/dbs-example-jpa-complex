@@ -2,16 +2,21 @@ package com.dbs.training.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import org.springframework.core.style.ToStringCreator;
 
 /**
- * The persistent class for the person database table.
+ * The persistent class for the PERSON database table.
  * 
  * @author John T Day
  */
@@ -46,10 +51,26 @@ public class Person implements Serializable {
 	@Column(unique = true, nullable = false, length = 45)
 	private String				username;
 
+	// uni-directional many-to-many association to Role
+	/* @formatter:off */
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+		name="PERSONROLE"
+		, joinColumns={
+			@JoinColumn(name="PERSON_ID", nullable=false)
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="ROLE_ID", nullable=false)
+			}
+		)
+	/* @formatter:on */
+	private List<Role>			roles;
+
 	@Override
 	public String toString() {
-		return new ToStringCreator(this).append("id", this.id).append("username", this.username).append("password", this.password)
-				.append("firstname", this.firstname).append("email", email).append("phoneSms", phoneSms).append("activeIndicator", activeIndicator).toString();
+		return new ToStringCreator(this).append("id", this.id).append("username", this.username)
+				.append("password", this.password).append("firstname", this.firstname).append("email", email)
+				.append("phoneSms", phoneSms).append("activeIndicator", activeIndicator).toString();
 	}
 
 	public Person() {
@@ -173,6 +194,21 @@ public class Person implements Serializable {
 	 */
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	/**
+	 * @return the roles
+	 */
+	public List<Role> getRoles() {
+		return this.roles;
+	}
+
+	/**
+	 * @param roles
+	 *            the roles to set
+	 */
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 }

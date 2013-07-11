@@ -1,6 +1,14 @@
 dbs-example-jpa-complex
 -------------------
-Example of Spring Data JPA application.  Hibernate is used as JPA implementation.
+Example of complex Spring Data JPA application.  Hibernate is used as JPA implementation.
+
+Documentation:
+-------------------
+ * https://github.com/johntday/dbs-example-jpa-complex/wiki
+
+References:
+-------------------
+ * public site:  http://johntday.github.io/dbs-example-jpa-complex
 
 To get the code:
 -------------------
@@ -32,12 +40,3 @@ In your preferred IDE such as SpringSource Tool Suite (STS):
 * Drag-n-drop the project onto the "SpringSource tc Server Developer Edition" or another Servlet 2.5 or > Server to run, such as Tomcat.
 
 Access the deployed web application at: http://localhost:8080/dbs-example-jpa-complex/
-
-Documentation:
--------------------
- * https://github.com/johntday/dbs-example-jpa-complex/wiki
-
-References:
--------------------
- * none
- 
