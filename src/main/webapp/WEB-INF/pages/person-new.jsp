@@ -48,6 +48,11 @@
 	<td><form:errors path="activeIndicator" cssStyle="color: red;"/></td>
 </tr>
 <tr>
+	<td>roles</td>
+	<td> <form:select path="roles" multiple="true" items="${roleList}" itemValue="id" itemLabel="name"/> </td>
+	<td><form:errors path="roles" cssStyle="color: red;"/></td>
+</tr>
+<tr>
 	<td><input type="submit" value="Create" /></td>
 	<td></td>
 	<td></td>

@@ -1,3 +1,4 @@
+<%@page import="com.dbs.training.util.Utils"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -19,6 +20,8 @@
 	<th>lastname</th>
 	<th>phoneSms</th>
 	<th>active</th>
+	<th>roles</th>
+	<th>toString</th>
 	<th width="50px">action</th>
 </tr>
 </thead>
@@ -32,6 +35,12 @@
 	<td>${person.lastname}</td>
 	<td>${person.phoneSms}</td>
 	<td>${person.activeIndicator}</td>
+	<td> &nbsp;
+		<c:forEach var="role" items="${person.roles}">
+			${role.name} &nbsp;
+		</c:forEach>
+	</td>
+	<td><a href="${pageContext.request.contextPath}/person/tostring/${person.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/person/edit/${person.id}">Edit</a><br/>
 		<a href="${pageContext.request.contextPath}/person/delete/${person.id}">Delete</a><br/>

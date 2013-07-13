@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
@@ -52,11 +51,7 @@ public class ClssServiceImpl implements ClssService {
 	@Override
 	@Transactional(rollbackFor = ObjectNotFound.class)
 	public Clss update(Clss clss) throws ObjectNotFound {
-		Clss updatedClss = clssRepository.findOne(clss.getId());
-
-		if (updatedClss == null)
-			throw new ObjectNotFound();
-		BeanUtils.copyProperties(clss, updatedClss);
+		Clss updatedClss = clssRepository.save(clss);
 		return updatedClss;
 	}
 

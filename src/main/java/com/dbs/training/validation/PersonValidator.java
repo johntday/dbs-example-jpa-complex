@@ -31,6 +31,10 @@ public class PersonValidator implements Validator {
 
 		if (person.getActiveIndicator() != 0 && person.getActiveIndicator() != 1)
 			errors.rejectValue("activeIndicator", "person.activeIndicator.ne0or1", "person.activeIndicator must be 0 or 1");
-	}
 
+		// if ((person != null) && (person.getRoles() == null ||
+		// person.getRoles().size() == 0))
+		// errors.rejectValue("roles", "person.roles.empty",
+		// "person.roles must have at least one role");
+	}
 }

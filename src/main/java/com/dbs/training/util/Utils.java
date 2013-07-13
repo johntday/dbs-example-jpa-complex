@@ -3,6 +3,9 @@
  */
 package com.dbs.training.util;
 
+import java.util.Collection;
+import com.dbs.training.model.Role;
+
 /**
  * Utilities.
  * 
@@ -27,5 +30,17 @@ public class Utils {
 		}
 		message += "</ol>";
 		return message;
+	}
+
+	public static String[] getRoleNames(Collection<Role> roles) {
+		if (roles == null)
+			return new String[] {};
+		int i = 0;
+		String[] codes = new String[roles.size()];
+		for (Role role : roles) {
+			codes[i] = role.getName();
+			i++;
+		}
+		return codes;
 	}
 }

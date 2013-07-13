@@ -3,12 +3,13 @@ package com.dbs.training.service.impl;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import javax.annotation.Resource;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
 import com.dbs.training.model.Person;
+import com.dbs.training.model.Role;
 import com.dbs.training.repository.PersonRepository;
 import com.dbs.training.service.PersonService;
 
@@ -21,7 +22,11 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	@Transactional
 	public Person create(Person person) {
-		Person createdPerson = person;
+		Set<Role> roles = person.getRoles();
+		person.setRoles(null);
+		Person createdPerson = personRepository.save(person);
+
+		createdPerson.setRoles(roles);
 		return personRepository.save(createdPerson);
 	}
 
@@ -52,11 +57,12 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	@Transactional(rollbackFor = ObjectNotFound.class)
 	public Person update(Person person) throws ObjectNotFound {
-		Person updatedPerson = personRepository.findOne(person.getId());
-
-		if (updatedPerson == null)
-			throw new ObjectNotFound();
-		BeanUtils.copyProperties(person, updatedPerson);
+		Person updatedPerson = personRepository.save(person);
+		// Person updatedPerson = personRepository.findOne(person.getId());
+		//
+		// if (updatedPerson == null)
+		// throw new ObjectNotFound();
+		// BeanUtils.copyProperties(person, updatedPerson);
 		return updatedPerson;
 	}
 

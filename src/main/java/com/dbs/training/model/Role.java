@@ -1,26 +1,23 @@
 package com.dbs.training.model;
 
 import java.io.Serializable;
-import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.core.style.ToStringCreator;
 
 /**
- * The persistent class for the ROLE database table. IMMUTABLE.
+ * The persistent class for the ROLE database table.
  * 
  * @author John T Day
  * 
  */
 @Entity
-@Cacheable
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+// @Cacheable
+// @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Table(name = "ROLE")
 public class Role implements Serializable {
 	private static final long	serialVersionUID	= 1L;

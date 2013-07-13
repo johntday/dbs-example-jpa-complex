@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
@@ -52,11 +51,7 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	@Transactional(rollbackFor = ObjectNotFound.class)
 	public Room update(Room room) throws ObjectNotFound {
-		Room updatedRoom = roomRepository.findOne(room.getId());
-
-		if (updatedRoom == null)
-			throw new ObjectNotFound();
-		BeanUtils.copyProperties(room, updatedRoom);
+		Room updatedRoom = roomRepository.save(room);
 		return updatedRoom;
 	}
 

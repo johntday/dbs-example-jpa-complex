@@ -17,9 +17,11 @@
 	<th>dateTime</th>
 	<th>durationMinutes</th>
 	<th>note</th>
+	<th>clss.course.name</th>
 	<th>clss.name</th>
 	<th>instructor.username</th>
 	<th>room.name</th>
+	<th>toString</th>
 	<th width="50px">action</th>
 </tr>
 </thead>
@@ -30,9 +32,11 @@
 	<td><spring:eval expression="classinstance.dateTime"/></td>
 	<td>${classinstance.durationMinutes}</td>
 	<td>${classinstance.note}</td>
+	<td>${classinstance.clss.course.name}</td>
 	<td>${classinstance.clss.name}</td>
 	<td>${classinstance.instructor.username}</td>
 	<td>${classinstance.room.name}</td>
+	<td><a href="${pageContext.request.contextPath}/classinstance/tostring/${classinstance.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/classinstance/edit/${classinstance.id}">Edit</a><br/>
 		<a href="${pageContext.request.contextPath}/classinstance/delete/${classinstance.id}">Delete</a><br/>

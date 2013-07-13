@@ -9,6 +9,7 @@ Documentation:
 References:
 -------------------
  * public site:  http://johntday.github.io/dbs-example-jpa-complex
+ * [JPA annotation documentation][My JPA annotation documentation]
 
 To get the code:
 -------------------
@@ -40,3 +41,5 @@ In your preferred IDE such as SpringSource Tool Suite (STS):
 * Drag-n-drop the project onto the "SpringSource tc Server Developer Edition" or another Servlet 2.5 or > Server to run, such as Tomcat.
 
 Access the deployed web application at: http://localhost:8080/dbs-example-jpa-complex/
+
+[My JPA annotation documentation]: https://www.mozilla.org

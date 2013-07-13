@@ -17,6 +17,7 @@
 	<th>code</th>
 	<th>name</th>
 	<th>description</th>
+	<th>toString</th>
 	<th width="50px">action</th>
 </tr>
 </thead>
@@ -28,6 +29,7 @@
 	<td>${clss.code}</td>
 	<td>${clss.name}</td>
 	<td>${clss.description}</td>
+	<td><a href="${pageContext.request.contextPath}/clss/tostring/${clss.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/clss/edit/${clss.id}">Edit</a><br/>
 		<a href="${pageContext.request.contextPath}/clss/delete/${clss.id}">Delete</a><br/>

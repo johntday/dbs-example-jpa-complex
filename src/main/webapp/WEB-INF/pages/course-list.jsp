@@ -16,6 +16,7 @@
 	<th>code</th>
 	<th>name</th>
 	<th>description</th>
+	<th>toString</th>
 	<th width="50px">action</th>
 </tr>
 </thead>
@@ -26,6 +27,7 @@
 	<td>${course.code}</td>
 	<td>${course.name}</td>
 	<td>${course.description}</td>
+	<td><a href="${pageContext.request.contextPath}/course/tostring/${course.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/course/edit/${course.id}">Edit</a><br/>
 		<a href="${pageContext.request.contextPath}/course/delete/${course.id}">Delete</a><br/>

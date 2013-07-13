@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
@@ -52,11 +51,7 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	@Transactional(rollbackFor = ObjectNotFound.class)
 	public Course update(Course course) throws ObjectNotFound {
-		Course updatedCourse = courseRepository.findOne(course.getId());
-
-		if (updatedCourse == null)
-			throw new ObjectNotFound();
-		BeanUtils.copyProperties(course, updatedCourse);
+		Course updatedCourse = courseRepository.save(course);
 		return updatedCourse;
 	}
 

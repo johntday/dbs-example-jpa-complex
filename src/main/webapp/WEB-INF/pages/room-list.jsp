@@ -18,6 +18,7 @@
 	<th width="50px">description</th>
 	<th width="50px">floor</th>
 	<th width="50px">numberOfSeats</th>
+	<th>toString</th>
 	<th width="50px">action</th>
 </tr>
 </thead>
@@ -30,6 +31,7 @@
 	<td>${room.description}</td>
 	<td>${room.floor}</td>
 	<td>${room.numberOfSeats}</td>
+	<td><a href="${pageContext.request.contextPath}/room/tostring/${room.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/room/edit/${room.id}">Edit</a><br/>
 		<a href="${pageContext.request.contextPath}/room/delete/${room.id}">Delete</a><br/>

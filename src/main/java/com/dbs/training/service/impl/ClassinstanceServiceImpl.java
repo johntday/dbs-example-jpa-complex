@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
@@ -52,11 +51,7 @@ public class ClassinstanceServiceImpl implements ClassinstanceService {
 	@Override
 	@Transactional(rollbackFor = ObjectNotFound.class)
 	public Classinstance update(Classinstance classinstance) throws ObjectNotFound {
-		Classinstance updatedClassinstance = classinstanceRepository.findOne(classinstance.getId());
-
-		if (updatedClassinstance == null)
-			throw new ObjectNotFound();
-		BeanUtils.copyProperties(classinstance, updatedClassinstance);
+		Classinstance updatedClassinstance = classinstanceRepository.save(classinstance);
 		return updatedClassinstance;
 	}
 

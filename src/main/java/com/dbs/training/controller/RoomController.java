@@ -36,6 +36,14 @@ public class RoomController {
 		binder.setValidator(roomValidator);
 	}
 
+	@RequestMapping(value = "/tostring/{id}", method = RequestMethod.GET)
+	public ModelAndView toStringPage(@PathVariable Integer id) {
+		ModelAndView mav = new ModelAndView("object-toString");
+		Room room = roomService.findById(id);
+		mav.addObject("object", room.toString());
+		return mav;
+	}
+
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView newRoomPage() {
 		logger.debug("newRoomPage: ");

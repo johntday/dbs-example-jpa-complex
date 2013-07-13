@@ -2,7 +2,8 @@ package com.dbs.training.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +28,7 @@ public class Person implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "PERSON_ID", unique = true, nullable = false)
 	private Integer				id;
 
 	@Column(name = "ACTIVE_IND", nullable = false)
@@ -51,9 +52,10 @@ public class Person implements Serializable {
 	@Column(unique = true, nullable = false, length = 45)
 	private String				username;
 
-	// uni-directional many-to-many association to Role
+	// uni-directional many-to-many association to ROLE
 	/* @formatter:off */
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	//@OrderColumn(name="ROLE_ID")
 	@JoinTable(
 		name="PERSONROLE"
 		, joinColumns={
@@ -64,13 +66,13 @@ public class Person implements Serializable {
 			}
 		)
 	/* @formatter:on */
-	private List<Role>			roles;
+	private Set<Role>			roles;
 
 	@Override
 	public String toString() {
-		return new ToStringCreator(this).append("id", this.id).append("username", this.username)
-				.append("password", this.password).append("firstname", this.firstname).append("email", email)
-				.append("phoneSms", phoneSms).append("activeIndicator", activeIndicator).toString();
+		return new ToStringCreator(this).append("id", this.id).append("username", this.username).append("password", this.password)
+				.append("firstname", this.firstname).append("email", email).append("phoneSms", phoneSms).append("activeIndicator", activeIndicator)
+				.append("roles", roles).toString();
 	}
 
 	public Person() {
@@ -199,7 +201,7 @@ public class Person implements Serializable {
 	/**
 	 * @return the roles
 	 */
-	public List<Role> getRoles() {
+	public Set<Role> getRoles() {
 		return this.roles;
 	}
 
@@ -207,7 +209,7 @@ public class Person implements Serializable {
 	 * @param roles
 	 *            the roles to set
 	 */
-	public void setRoles(List<Role> roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 

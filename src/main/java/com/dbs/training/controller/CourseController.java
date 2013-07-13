@@ -36,6 +36,14 @@ public class CourseController {
 		binder.setValidator(courseValidator);
 	}
 
+	@RequestMapping(value = "/tostring/{id}", method = RequestMethod.GET)
+	public ModelAndView toStringPage(@PathVariable Integer id) {
+		ModelAndView mav = new ModelAndView("object-toString");
+		Course course = courseService.findById(id);
+		mav.addObject("object", course.toString());
+		return mav;
+	}
+
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView newCoursePage() {
 		logger.debug("newCoursePage: ");

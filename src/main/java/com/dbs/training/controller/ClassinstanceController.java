@@ -49,6 +49,14 @@ public class ClassinstanceController {
 		binder.setValidator(classinstanceValidator);
 	}
 
+	@RequestMapping(value = "/tostring/{id}", method = RequestMethod.GET)
+	public ModelAndView toStringPage(@PathVariable Integer id) {
+		ModelAndView mav = new ModelAndView("object-toString");
+		Classinstance classinstance = classinstanceService.findById(id);
+		mav.addObject("object", classinstance.toString());
+		return mav;
+	}
+
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView newClassinstancePage() {
 		logger.debug("newClassinstancePage: ");

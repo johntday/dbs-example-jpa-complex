@@ -50,6 +50,14 @@ public class ClssController {
 		});
 	}
 
+	@RequestMapping(value = "/tostring/{id}", method = RequestMethod.GET)
+	public ModelAndView toStringPage(@PathVariable Integer id) {
+		ModelAndView mav = new ModelAndView("object-toString");
+		Clss clss = clssService.findById(id);
+		mav.addObject("object", clss.toString());
+		return mav;
+	}
+
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView newClssPage() {
 		logger.debug("newClssPage: ");
@@ -61,8 +69,7 @@ public class ClssController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView createNewClss(@ModelAttribute @Valid Clss clss, BindingResult result,
-			final RedirectAttributes redirectAttributes) {
+	public ModelAndView createNewClss(@ModelAttribute @Valid Clss clss, BindingResult result, final RedirectAttributes redirectAttributes) {
 		logger.debug("createNewClss: clss=" + clss);
 
 		if (result.hasErrors())
@@ -98,8 +105,8 @@ public class ClssController {
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView editClss(@ModelAttribute @Valid Clss clss, BindingResult result, @PathVariable Integer id,
-			final RedirectAttributes redirectAttributes) throws ObjectNotFound {
+	public ModelAndView editClss(@ModelAttribute @Valid Clss clss, BindingResult result, @PathVariable Integer id, final RedirectAttributes redirectAttributes)
+			throws ObjectNotFound {
 		logger.debug("clssListPage: clss=" + clss + ", id=" + id);
 
 		if (result.hasErrors())

@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.springframework.core.style.ToStringCreator;
 
 /**
  * The persistent class for the ROSTER database table.
@@ -33,8 +34,8 @@ public class Roster implements Serializable {
 	private boolean				attendanceIndicator;
 
 	// uni-directional one-to-many association to Classcomment
-	@OneToMany(mappedBy = "ROSTER", fetch = FetchType.EAGER)
-	private List<Classcomment>	classcomments;
+	@OneToMany(fetch = FetchType.EAGER)
+	private List<Classcomment>	comments;
 
 	// uni-directional many-to-one association to Classinstance
 	@ManyToOne
@@ -46,31 +47,71 @@ public class Roster implements Serializable {
 	@JoinColumn(name = "PERSON_ID", nullable = false)
 	private Person				student;
 
+	@Override
+	public String toString() {
+		return new ToStringCreator(this).append("id", this.id).append("attendanceIndicator", this.attendanceIndicator).append("comments", this.comments)
+				.append("classinstance", this.classinstance).append("student", student).toString();
+	}
+
 	public Roster() {
 	}
 
-	public List<Classcomment> getClasscomments() {
-		return this.classcomments;
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setClasscomments(List<Classcomment> classcomments) {
-		this.classcomments = classcomments;
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public Classcomment addClasscomments(Classcomment classcomments) {
-		getClasscomments().add(classcomments);
-		return classcomments;
+	/**
+	 * @return the attendanceIndicator
+	 */
+	public boolean isAttendanceIndicator() {
+		return this.attendanceIndicator;
 	}
 
-	public Classcomment removeClasscomments(Classcomment classcomments) {
-		getClasscomments().remove(classcomments);
-		return classcomments;
+	/**
+	 * @param attendanceIndicator
+	 *            the attendanceIndicator to set
+	 */
+	public void setAttendanceIndicator(boolean attendanceIndicator) {
+		this.attendanceIndicator = attendanceIndicator;
 	}
 
+	/**
+	 * @return the comments
+	 */
+	public List<Classcomment> getComments() {
+		return this.comments;
+	}
+
+	/**
+	 * @param comments
+	 *            the comments to set
+	 */
+	public void setComments(List<Classcomment> comments) {
+		this.comments = comments;
+	}
+
+	/**
+	 * @return the classinstance
+	 */
 	public Classinstance getClassinstance() {
 		return this.classinstance;
 	}
 
+	/**
+	 * @param classinstance
+	 *            the classinstance to set
+	 */
 	public void setClassinstance(Classinstance classinstance) {
 		this.classinstance = classinstance;
 	}
@@ -90,34 +131,14 @@ public class Roster implements Serializable {
 		this.student = student;
 	}
 
-	/**
-	 * @return the attendanceIndicator
-	 */
-	public boolean isAttendanceIndicator() {
-		return this.attendanceIndicator;
+	public Classcomment addClasscomments(Classcomment classcomments) {
+		getComments().add(classcomments);
+		return classcomments;
 	}
 
-	/**
-	 * @param attendanceIndicator
-	 *            the attendanceIndicator to set
-	 */
-	public void setAttendanceIndicator(boolean attendanceIndicator) {
-		this.attendanceIndicator = attendanceIndicator;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return this.id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
+	public Classcomment removeClasscomments(Classcomment classcomments) {
+		getComments().remove(classcomments);
+		return classcomments;
 	}
 
 }
