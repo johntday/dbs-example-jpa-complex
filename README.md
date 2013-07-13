@@ -5,6 +5,7 @@ Example of complex Spring Data JPA application.  Hibernate is used as JPA implem
 Documentation:
 -------------------
  * https://github.com/johntday/dbs-example-jpa-complex/wiki
+ * Database diagrams:  [https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd.png](overview), [https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd-detail.png](detail)
 
 References:
 -------------------
