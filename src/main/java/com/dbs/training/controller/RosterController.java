@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.dbs.training.exception.ObjectNotFound;
 import com.dbs.training.model.Roster;
+import com.dbs.training.service.ClassinstanceService;
+import com.dbs.training.service.PersonService;
 import com.dbs.training.service.RosterService;
 import com.dbs.training.util.Utils;
 import com.dbs.training.validation.RosterValidator;
@@ -23,14 +25,20 @@ import com.dbs.training.validation.RosterValidator;
 @Controller
 @RequestMapping(value = "/roster")
 public class RosterController {
-	private static final Logger	logger			= Logger.getLogger(RosterController.class);
-	private static final String	MESSAGE_FORMAT	= "Roster successfully %s <br/> %s";
+	private static final Logger		logger			= Logger.getLogger(RosterController.class);
+	private static final String		MESSAGE_FORMAT	= "Roster successfully %s <br/> %s";
 
 	@Autowired
-	private RosterService		rosterService;
+	private RosterService			rosterService;
 
 	@Autowired
-	private RosterValidator		rosterValidator;
+	private PersonService			personService;
+
+	@Autowired
+	private ClassinstanceService	classinstanceService;
+
+	@Autowired
+	private RosterValidator			rosterValidator;
 
 	@InitBinder
 	private void initBinder(WebDataBinder binder) {
@@ -49,6 +57,7 @@ public class RosterController {
 	public ModelAndView newRosterPage() {
 		logger.debug("newRosterPage: ");
 		ModelAndView mav = new ModelAndView("roster-new", "roster", new Roster());
+		getDropDowns(mav);
 		return mav;
 	}
 
@@ -57,7 +66,7 @@ public class RosterController {
 		logger.debug("createNewRoster: roster=" + roster);
 
 		if (result.hasErrors())
-			return new ModelAndView("roster-new");
+			return getDropDowns(new ModelAndView("roster-new"));
 
 		ModelAndView mav = new ModelAndView();
 		String message = String.format(MESSAGE_FORMAT, "created", roster.toString());
@@ -89,6 +98,7 @@ public class RosterController {
 		ModelAndView mav = new ModelAndView("roster-edit");
 		Roster roster = rosterService.findById(id);
 		mav.addObject("roster", roster);
+		getDropDowns(mav);
 		return mav;
 	}
 
@@ -98,7 +108,7 @@ public class RosterController {
 		logger.debug("editRoster: roster=" + roster + ", id=" + id);
 
 		if (result.hasErrors())
-			return new ModelAndView("roster-edit");
+			return getDropDowns(new ModelAndView("roster-edit"));
 
 		ModelAndView mav = new ModelAndView("redirect:/index");
 		String message = String.format(MESSAGE_FORMAT, "updated", roster.toString());
@@ -124,6 +134,12 @@ public class RosterController {
 		String message = String.format(MESSAGE_FORMAT, "deleted", roster.toString());
 
 		redirectAttributes.addFlashAttribute("message", message);
+		return mav;
+	}
+
+	private ModelAndView getDropDowns(ModelAndView mav) {
+		mav.addObject("studentList", personService.getDropDownList());
+		mav.addObject("classinstanceList", classinstanceService.getDropDownList());
 		return mav;
 	}
 

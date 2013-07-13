@@ -22,7 +22,7 @@
 	<th>instructor.username</th>
 	<th>room.name</th>
 	<th>toString</th>
-	<th width="50px">action</th>
+	<th>action</th>
 </tr>
 </thead>
 <tbody>
@@ -40,6 +40,7 @@
 	<td>
 		<a href="${pageContext.request.contextPath}/classinstance/edit/${classinstance.id}">Edit</a><br/>
 		<a href="${pageContext.request.contextPath}/classinstance/delete/${classinstance.id}">Delete</a><br/>
+		<a href="${pageContext.request.contextPath}/wip">Show Roster</a><br/>
 	</td>
 </tr>
 </c:forEach>

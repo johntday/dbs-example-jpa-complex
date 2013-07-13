@@ -12,7 +12,14 @@ public class NavigationController {
 
 	@RequestMapping(value = { "/", "index" }, method = RequestMethod.GET)
 	public ModelAndView index() {
+		logger.debug("index: ");
 		return new ModelAndView("index");
+	}
+
+	@RequestMapping(value = { "wip" }, method = RequestMethod.GET)
+	public ModelAndView wip() {
+		logger.debug("wip: ");
+		return new ModelAndView("wip");
 	}
 
 }

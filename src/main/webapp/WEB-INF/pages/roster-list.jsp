@@ -6,10 +6,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Person List page</title>
+<title>Roster List page</title>
 </head>
 <body>
-<h1>Person List page</h1>
+<h1>Roster List page</h1>
 <table style="text-align: center;" border="1px" cellpadding="0" cellspacing="0" >
 <thead>
 <tr>
@@ -22,25 +22,28 @@
 	<th>active</th>
 	<th>roles</th>
 	<th>toString</th>
-	<th>action</th>
+	<th width="50px">action</th>
 </tr>
 </thead>
 <tbody>
-<c:forEach var="person" items="${personList}">
+<c:forEach var="roster" items="${rosterList}">
 <tr>
-	<td>${person.id}</td>
-	<td>${person.username}</td>
-	<td>${person.password}</td>
-	<td>${person.firstname}</td>
-	<td>${person.lastname}</td>
-	<td>${person.phoneSms}</td>
-	<td>${person.activeIndicator}</td>
-	<td>${person.displayRoleNames()}</td>
-	<td><a href="${pageContext.request.contextPath}/person/tostring/${person.id}">toString</a></td>
+	<td>${roster.id}</td>
+	<td>${roster.username}</td>
+	<td>${roster.password}</td>
+	<td>${roster.firstname}</td>
+	<td>${roster.lastname}</td>
+	<td>${roster.phoneSms}</td>
+	<td>${roster.activeIndicator}</td>
+	<td> &nbsp;
+		<c:forEach var="role" items="${roster.roles}">
+			${role.name} &nbsp;
+		</c:forEach>
+	</td>
+	<td><a href="${pageContext.request.contextPath}/roster/tostring/${roster.id}">toString</a></td>
 	<td>
-		<a href="${pageContext.request.contextPath}/person/edit/${person.id}">Edit</a><br/>
-		<a href="${pageContext.request.contextPath}/person/delete/${person.id}">Delete</a><br/>
-		<a href="${pageContext.request.contextPath}/wip">Show Enrolled Classes</a><br/>
+		<a href="${pageContext.request.contextPath}/roster/edit/${roster.id}">Edit</a><br/>
+		<a href="${pageContext.request.contextPath}/roster/delete/${roster.id}">Delete</a><br/>
 	</td>
 </tr>
 </c:forEach>

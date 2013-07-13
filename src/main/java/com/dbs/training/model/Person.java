@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import org.springframework.core.style.ToStringCreator;
 
 /**
@@ -211,6 +212,37 @@ public class Person implements Serializable {
 	 */
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	/**
+	 * Gets the full name of the person in a consistent way.
+	 * 
+	 * @return The full name of the person.
+	 */
+	@Transient
+	public String displayFullName() {
+		StringBuilder name = new StringBuilder();
+		name.append(firstname);
+		name.append(" ");
+		name.append(lastname);
+		return name.toString();
+	}
+
+	/**
+	 * Gets the {@link Role} names and puts in a String in a consistent way.
+	 * 
+	 * @return All role names for a person.
+	 */
+	@Transient
+	public String displayRoleNames() {
+		StringBuilder name = new StringBuilder();
+		if (roles != null) {
+			for (Role role : roles) {
+				name.append(role.getName()).append(" ");
+			}
+
+		}
+		return name.toString();
 	}
 
 }

@@ -16,4 +16,6 @@ public interface RosterService {
 
 	public Roster findById(int id);
 
+	public List<Roster> findByClassinstanceId(int classinstanceId);
+
 }

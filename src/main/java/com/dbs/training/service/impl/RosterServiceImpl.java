@@ -53,4 +53,10 @@ public class RosterServiceImpl implements RosterService {
 		return updatedRoster;
 	}
 
+	@Override
+	@Transactional
+	public List<Roster> findByClassinstanceId(int classinstanceId) {
+		return null;
+	}
+
 }

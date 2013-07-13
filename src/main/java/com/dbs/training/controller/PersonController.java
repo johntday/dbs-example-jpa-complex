@@ -24,11 +24,18 @@ import com.dbs.training.service.RoleService;
 import com.dbs.training.util.Utils;
 import com.dbs.training.validation.PersonValidator;
 
+/**
+ * Person Spring-MVC Controller.
+ * 
+ * @author John T Day
+ * 
+ */
 @Controller
 @RequestMapping(value = "/person")
 public class PersonController {
-	private static final Logger	logger			= Logger.getLogger(PersonController.class);
-	private static final String	MESSAGE_FORMAT	= "Person successfully %s <br/> %s";
+	private static final Logger	logger					= Logger.getLogger(PersonController.class);
+	private static final String	MESSAGE_FORMAT_SUCCESS	= "Person successfully %s <br/> %s";
+	private static final String	MESSAGE_FORMAT_ERROR	= "Person error with %s <br/> %s";
 
 	@Autowired
 	private PersonService		personService;
@@ -61,6 +68,7 @@ public class PersonController {
 
 	@RequestMapping(value = "/tostring/{id}", method = RequestMethod.GET)
 	public ModelAndView toStringPage(@PathVariable Integer id) {
+		logger.debug("toStringPage: id=" + id);
 		ModelAndView mav = new ModelAndView("object-toString");
 		Person person = personService.findById(id);
 		mav.addObject("object", person.toString());
@@ -82,17 +90,16 @@ public class PersonController {
 		if (result.hasErrors())
 			return getDropDowns(new ModelAndView("person-new"));
 
-		ModelAndView mav = new ModelAndView();
-		String message = String.format(MESSAGE_FORMAT, "created", person.toString());
+		ModelAndView mav = new ModelAndView("redirect:/index");
+		String message = null;
 
 		try {
-			personService.create(person);
+			Person createdPerson = personService.create(person);
+			message = String.format(MESSAGE_FORMAT_SUCCESS, "created", createdPerson.toString());
 		} catch (Throwable e) {
 			logger.error("createNewPerson: person=" + person, e);
-			message = Utils.unwindExceptionStackMessages(e);
+			message = String.format(MESSAGE_FORMAT_ERROR, "created", Utils.unwindExceptionStackMessages(e));
 		}
-		mav.setViewName("redirect:/index");
-
 		redirectAttributes.addFlashAttribute("message", message);
 		return mav;
 	}
@@ -109,10 +116,9 @@ public class PersonController {
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView editPersonPage(@PathVariable Integer id) {
 		logger.debug("editPersonPage: id=" + id);
-		ModelAndView mav = new ModelAndView("person-edit");
+		ModelAndView mav = getDropDowns(new ModelAndView("person-edit"));
 		Person person = personService.findById(id);
 		mav.addObject("person", person);
-		getDropDowns(mav);
 		return mav;
 	}
 
@@ -125,28 +131,39 @@ public class PersonController {
 			return getDropDowns(new ModelAndView("person-edit"));
 
 		ModelAndView mav = new ModelAndView("redirect:/index");
-		String message = String.format(MESSAGE_FORMAT, "updated", person.toString());
+		String message = null;
 
 		try {
-			personService.update(person);
+			Person updatedPerson = personService.update(person);
+			message = String.format(MESSAGE_FORMAT_SUCCESS, "updated", updatedPerson.toString());
+		} catch (ObjectNotFound e) {
+			logger.error("editPerson: Not person found with id=" + id);
+			message = String.format(MESSAGE_FORMAT_ERROR, "updated", "Person not found with id=" + id);
 		} catch (Throwable e) {
 			logger.error("editPerson: person=" + person + ", id=" + id, e);
-			message = Utils.unwindExceptionStackMessages(e);
+			message = String.format(MESSAGE_FORMAT_ERROR, "updated", Utils.unwindExceptionStackMessages(e));
 		}
-
 		redirectAttributes.addFlashAttribute("message", message);
 		return mav;
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView deletePerson(@PathVariable Integer id, final RedirectAttributes redirectAttributes) throws ObjectNotFound {
-		logger.debug("editPerson: id=" + id);
+		logger.debug("deletePerson: id=" + id);
 
 		ModelAndView mav = new ModelAndView("redirect:/index");
+		String message = null;
 
-		Person person = personService.delete(id);
-		String message = String.format(MESSAGE_FORMAT, "deleted", person.toString());
-
+		try {
+			Person personDeleted = personService.delete(id);
+			message = String.format(MESSAGE_FORMAT_SUCCESS, "deleted", personDeleted.toString());
+		} catch (ObjectNotFound e) {
+			logger.error("deletePerson: Not person found with id=" + id);
+			message = String.format(MESSAGE_FORMAT_ERROR, "delete", "Person not found with id=" + id);
+		} catch (Throwable e) {
+			logger.error("deletePerson: id=" + id, e);
+			message = String.format(MESSAGE_FORMAT_ERROR, "delete", Utils.unwindExceptionStackMessages(e));
+		}
 		redirectAttributes.addFlashAttribute("message", message);
 		return mav;
 	}
