@@ -5,7 +5,7 @@ Example of complex Spring Data JPA application.  Hibernate is used as JPA implem
 Documentation:
 -------------------
  * https://github.com/johntday/dbs-example-jpa-complex/wiki
- * Database diagrams:  [https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd.png](overview), [https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd-detail.png](detail)
+ * Database diagrams:  [Overview ERD][Overview ERD], [MySQL ERD][MySQL ERD]
 
 References:
 -------------------
@@ -44,3 +44,5 @@ In your preferred IDE such as SpringSource Tool Suite (STS):
 Access the deployed web application at: http://localhost:8080/dbs-example-jpa-complex/
 
 [My JPA annotation documentation]: http://www.evernote.com/shard/s8/sh/147ea1ec-d9d2-46fd-a0d9-3d2b819703fb/8e476ca6950c7d6c9551dbcc54d8c7f3
+[Overview ERD]: https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd.png
+[MySQL ERD]: https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd-detail.png
