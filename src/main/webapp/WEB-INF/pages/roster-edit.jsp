@@ -36,6 +36,7 @@
 </tbody>
 </table>
 </form:form>
+<p>* ==> required field</p>
 
 <table style="text-align: center;" border="1px" cellpadding="0" cellspacing="0" >
 <thead>

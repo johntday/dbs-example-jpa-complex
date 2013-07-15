@@ -13,12 +13,12 @@
 <table>
 <tbody>
 <tr>
-	<td>Course.code</td>
+	<td>Course.code *</td>
 	<td><form:input path="code" /></td>
 	<td><form:errors path="code" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Course.name</td>
+	<td>Course.name *</td>
 	<td><form:input path="name" /></td>
 	<td><form:errors path="name" cssStyle="color: red;"/></td>
 </tr>
@@ -35,6 +35,7 @@
 </tbody>
 </table>
 </form:form>
+<p>* ==> required field</p>
 <a href="${pageContext.request.contextPath}/">Home page</a>
 </body>
 </html>

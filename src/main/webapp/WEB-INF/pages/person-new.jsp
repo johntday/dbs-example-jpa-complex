@@ -13,22 +13,22 @@
 <table>
 <tbody>
 <tr>
-	<td>Person.username</td>
+	<td>Person.username *</td>
 	<td><form:input path="username" /></td>
 	<td><form:errors path="username" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Person.password</td>
+	<td>Person.password *</td>
 	<td><form:input path="password" /></td>
 	<td><form:errors path="password" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Person.firstname</td>
+	<td>Person.firstname *</td>
 	<td><form:input path="firstname" /></td>
 	<td><form:errors path="firstname" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Person.lastname</td>
+	<td>Person.lastname *</td>
 	<td><form:input path="lastname" /></td>
 	<td><form:errors path="lastname" cssStyle="color: red;"/></td>
 </tr>
@@ -38,12 +38,12 @@
 	<td><form:errors path="phoneSms" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Person.email</td>
+	<td>Person.email *</td>
 	<td><form:input path="email" /></td>
 	<td><form:errors path="email" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Person.activeIndicator</td>
+	<td>Person.activeIndicator *</td>
 	<td><form:input path="activeIndicator" /></td>
 	<td><form:errors path="activeIndicator" cssStyle="color: red;"/></td>
 </tr>
@@ -60,6 +60,7 @@
 </tbody>
 </table>
 </form:form>
+<p>* ==> required field</p>
 <a href="${pageContext.request.contextPath}/">Home page</a>
 </body>
 </html>

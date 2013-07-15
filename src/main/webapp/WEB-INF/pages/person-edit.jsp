@@ -18,22 +18,22 @@
 <table>
 <tbody>
 <tr>
-	<td>username</td>
+	<td>username *</td>
 	<td><form:input path="username" /></td>
 	<td><form:errors path="username" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>password</td>
+	<td>password *</td>
 	<td><form:input path="password" /></td>
 	<td><form:errors path="password" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>firstname</td>
+	<td>firstname *</td>
 	<td><form:input path="firstname" /></td>
 	<td><form:errors path="firstname" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>lastname</td>
+	<td>lastname *</td>
 	<td><form:input path="lastname" /></td>
 	<td><form:errors path="lastname" cssStyle="color: red;"/></td>
 </tr>
@@ -43,22 +43,15 @@
 	<td><form:errors path="phoneSms" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>email</td>
+	<td>email *</td>
 	<td><form:input path="email" /></td>
 	<td><form:errors path="email" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>activeIndicator</td>
+	<td>activeIndicator *</td>
 	<td><form:input path="activeIndicator" /></td>
 	<td><form:errors path="activeIndicator" cssStyle="color: red;"/></td>
 </tr>
-<!-- 
-<tr>
-	<td>roles</td>
-	<td> <form:select path="roles" multiple="true" items="${roleList}" itemLabel="name"/> </td>
-	<td><form:errors path="roles" cssStyle="color: red;"/></td>
-</tr>
- -->
 <tr>
 	<td>roles</td>
 	<td>
@@ -91,6 +84,7 @@
 </tbody>
 </table>
 </form:form>
+<p>* ==> required field</p>
 <a href="${pageContext.request.contextPath}/">Home page</a>
 </body>
 </html>

@@ -3,7 +3,6 @@ package com.dbs.training.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -55,7 +54,7 @@ public class Person implements Serializable {
 
 	// uni-directional many-to-many association to ROLE
 	/* @formatter:off */
-	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.EAGER)
 	//@OrderColumn(name="ROLE_ID")
 	@JoinTable(
 		name="PERSONROLE"

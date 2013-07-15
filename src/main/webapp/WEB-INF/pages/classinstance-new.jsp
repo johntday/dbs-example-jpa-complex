@@ -50,6 +50,8 @@
 </tbody>
 </table>
 </form:form>
+<p>* ==> required field</p>
+
 <a href="${pageContext.request.contextPath}/">Home page</a>
 </body>
 </html>
