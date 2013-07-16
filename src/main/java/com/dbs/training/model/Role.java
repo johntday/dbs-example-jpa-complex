@@ -13,7 +13,6 @@ import org.springframework.core.style.ToStringCreator;
  * The persistent class for the ROLE database table.
  * 
  * @author John T Day
- * 
  */
 @Entity
 // @Cacheable
@@ -21,6 +20,9 @@ import org.springframework.core.style.ToStringCreator;
 @Table(name = "ROLE")
 public class Role implements Serializable {
 	private static final long	serialVersionUID	= 1L;
+	public static final String	ROLE_ADMIN			= "ROLE_ADMIN";
+	public static final String	ROLE_INSTRUCTOR		= "ROLE_INSTRUCTOR";
+	public static final String	ROLE_STUDENT		= "ROLE_STUDENT";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

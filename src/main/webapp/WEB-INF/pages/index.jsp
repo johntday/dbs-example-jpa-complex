@@ -41,6 +41,12 @@
 	<li><a href="${pageContext.request.contextPath}/classinstance/list">View all</a></li>
 </ul>
 
+<h3>Roster</h3>
+<ul>
+	<li><a href="${pageContext.request.contextPath}/roster/create">Create</a></li>
+	<li><a href="${pageContext.request.contextPath}/roster/list">View all</a></li>
+</ul>
+
 <hr/>
 <img  src="${pageContext.request.contextPath}/static/img/erd.png" alt="Database diagram for MySQL" title="Database diagram for MySQL" /><br/>
 <a href="${pageContext.request.contextPath}/static/img/erd-detail.png" title="Database diagram for MySQL">Detailed Diagram for MySQL</a>

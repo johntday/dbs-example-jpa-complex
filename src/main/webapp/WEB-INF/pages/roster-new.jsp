@@ -13,17 +13,17 @@
 <table>
 <tbody>
 <tr>
-	<td>Roster.classinstance</td>
+	<td>Roster.classinstance *</td>
 	<td><form:select path="classinstance.id" items="${classinstanceList}" /></td>
 	<td><form:errors path="classinstance.id" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Roster.student</td>
+	<td>Roster.student *</td>
 	<td><form:select path="student.id" items="${studentList}" /></td>
 	<td><form:errors path="student.id" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Roster.attendanceIndicator</td>
+	<td>Roster.attendanceIndicator *</td>
 	<td><form:input path="attendanceIndicator" /></td>
 	<td><form:errors path="attendanceIndicator" cssStyle="color: red;"/></td>
 </tr>

@@ -14,13 +14,8 @@
 <thead>
 <tr>
 	<th width="50px">id</th>
-	<td>username</td>
-	<th>password</th>
-	<th>firstname</th>
-	<th>lastname</th>
-	<th>phoneSms</th>
-	<th>active</th>
-	<th>roles</th>
+	<td>attendanceIndicator</td>
+	<th>classinstance.clss.name</th>
 	<th>toString</th>
 	<th width="50px">action</th>
 </tr>
@@ -29,17 +24,8 @@
 <c:forEach var="roster" items="${rosterList}">
 <tr>
 	<td>${roster.id}</td>
-	<td>${roster.username}</td>
-	<td>${roster.password}</td>
-	<td>${roster.firstname}</td>
-	<td>${roster.lastname}</td>
-	<td>${roster.phoneSms}</td>
-	<td>${roster.activeIndicator}</td>
-	<td> &nbsp;
-		<c:forEach var="role" items="${roster.roles}">
-			${role.name} &nbsp;
-		</c:forEach>
-	</td>
+	<td>${roster.attendanceIndicator}</td>
+	<td>${roster.classinstance.clss.name}</td>
 	<td><a href="${pageContext.request.contextPath}/roster/tostring/${roster.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/roster/edit/${roster.id}">Edit</a><br/>

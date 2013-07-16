@@ -98,4 +98,25 @@ public class PersonServiceImpl implements PersonService {
 		return person;
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<Person> findByRoleCode(String roleCode) {
+		logger.debug("findByRoleCode: roleCode=" + roleCode);
+		List<Person> personList = personRepository.findByRoleCode(roleCode);
+		return personList;
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Map<String, String> findByRoleCodeDropDown(String roleCode) {
+		logger.debug("findByRoleCodeDropDown: roleCode=" + roleCode);
+		List<Person> personList = personRepository.findByRoleCode(roleCode);
+
+		Map<String, String> person = new LinkedHashMap<String, String>();
+		for (Person c : personList) {
+			person.put(c.getId().toString(), c.getUsername());
+		}
+		return person;
+	}
+
 }

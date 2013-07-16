@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import org.springframework.core.style.ToStringCreator;
 
@@ -18,7 +19,6 @@ import org.springframework.core.style.ToStringCreator;
  * The persistent class for the ROSTER database table.
  * 
  * @author John T Day
- * 
  */
 @Entity
 @Table(name = "ROSTER")
@@ -35,6 +35,8 @@ public class Roster implements Serializable {
 
 	// uni-directional one-to-many association to Classcomment
 	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ROSTER_ID")
+	@OrderBy("ROSTER_ID asc")
 	private List<Classcomment>	comments;
 
 	// uni-directional many-to-one association to Classinstance

@@ -7,8 +7,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import com.dbs.training.model.Role;
 import com.dbs.training.model.Roster;
 import com.dbs.training.service.ClassinstanceService;
+import com.dbs.training.service.PersonService;
 import com.dbs.training.service.RosterService;
 import com.dbs.training.validation.RosterValidator;
 
@@ -26,7 +28,7 @@ public class RosterController extends AbstractCrudController<Roster> {
 	private RosterService			entityService;
 
 	@Autowired
-	private RosterService			personService;
+	private PersonService			personService;
 
 	@Autowired
 	private ClassinstanceService	classinstanceService;
@@ -42,7 +44,7 @@ public class RosterController extends AbstractCrudController<Roster> {
 	@Override
 	protected ModelAndView getDropDowns(ModelAndView mav) {
 		logger.debug("getDropDowns: mav=" + mav);
-		mav.addObject("studentList", personService.getDropDownList());
+		mav.addObject("studentList", personService.findByRoleCodeDropDown(Role.ROLE_STUDENT));
 		mav.addObject("classinstanceList", classinstanceService.getDropDownList());
 		return mav;
 	}
@@ -51,6 +53,7 @@ public class RosterController extends AbstractCrudController<Roster> {
 	protected Roster buildNewEntity() {
 		logger.debug("buildNewEntity: ");
 		Roster newEntity = new Roster();
+		newEntity.setAttendanceIndicator(false);
 		return newEntity;
 	}
 

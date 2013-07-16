@@ -13,7 +13,6 @@ import org.springframework.core.style.ToStringCreator;
  * The persistent class for the CLASSCOMMENT database table.
  * 
  * @author John T Day
- * 
  */
 @Entity
 @Table(name = "CLASSCOMMENT")
