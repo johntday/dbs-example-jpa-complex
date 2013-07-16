@@ -14,32 +14,32 @@
 <table>
 <tbody>
 <tr>
-	<td>Classinstance.dateTime:</td>
+	<td>Classinstance.dateTime *</td>
 	<td><form:input path="dateTime" /></td>
 	<td><form:errors path="dateTime" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Classinstance.durationMinutes:</td>
+	<td>Classinstance.durationMinutes *</td>
 	<td><form:input path="durationMinutes" /></td>
 	<td><form:errors path="durationMinutes" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Classinstance.note:</td>
+	<td>Classinstance.note</td>
 	<td><form:textarea path="note" /></td>
 	<td><form:errors path="note" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Classinstance.clss:</td>
+	<td>Classinstance.clss *</td>
 	<td><form:select path="clss.id" items="${clssList}" /></td>
 	<td><form:errors path="clss.id" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Classinstance.room:</td>
+	<td>Classinstance.room *</td>
 	<td><form:select path="room.id" items="${roomList}" /></td>
 	<td><form:errors path="room.id" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Classinstance.instructor:</td>
+	<td>Classinstance.instructor *</td>
 	<td><form:select path="instructor.id" items="${instructorList}" /></td>
 	<td><form:errors path="instructor.id" cssStyle="color: red;"/></td>
 </tr>

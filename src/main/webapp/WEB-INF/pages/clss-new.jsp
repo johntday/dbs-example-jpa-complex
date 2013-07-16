@@ -13,22 +13,22 @@
 <table>
 <tbody>
 <tr>
-	<td>Clss.code:</td>
+	<td>Clss.code *</td>
 	<td><form:input path="code" /></td>
 	<td><form:errors path="code" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Clss.name:</td>
+	<td>Clss.name *</td>
 	<td><form:input path="name" /></td>
 	<td><form:errors path="name" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Clss.description:</td>
+	<td>Clss.description</td>
 	<td><form:input path="description" /></td>
 	<td><form:errors path="description" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td>Clss.course:</td>
+	<td>Clss.course *</td>
 	<td><form:select path="course.id" items="${courseList}" /></td>
 	<td><form:errors path="course.id" cssStyle="color: red;"/></td>
 </tr>

@@ -7,15 +7,16 @@ App is deployed to [dbs-example-jpa-complex][CloudFoundry url].
 Documentation:
 -------------------
  * [wiki][wiki]
- * Database diagrams:  [Overview ERD][Overview ERD], [MySQL ERD][MySQL ERD]
+ * Database diagrams:  [Overview ERD][Overview-ERD], [MySQL ERD][MySQL-ERD]
 
 References:
 -------------------
- * [public site for dbs-example-jpa-complex][public site]
- * [JPA annotation documentation][My JPA annotation documentation]
+ * [public site for dbs-example-jpa-complex][public-site]
+ * [JPA annotation documentation][My-JPA-annotation-documentation]
  * [Cloud Foundry deployment][CloudFoundry]
- * [Using Spring Java/Annotation Config instead of XML][Spring Config XML to Java]
- * [GitHub-cheat-sheet][GitHub configuration and settings cheat sheet]
+ * [Using Spring Java/Annotation Config instead of XML][Spring-Config-XML-to-Java]
+ * [GitHub configuration and settings cheat sheet][GitHub-cheat-sheet]
+ * [My CloudFoundry DBS Development environment][My-CloudFoundry-dbs-development]
 
 To get the code:
 -------------------
@@ -48,12 +49,13 @@ In your preferred IDE such as SpringSource Tool Suite (STS):
 
 Access the deployed web application at: http://localhost:8080/dbs-example-jpa-complex/
 
-[My JPA annotation documentation]: http://www.evernote.com/shard/s8/sh/147ea1ec-d9d2-46fd-a0d9-3d2b819703fb/8e476ca6950c7d6c9551dbcc54d8c7f3
-[Overview ERD]: https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd.png
-[MySQL ERD]: https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd-detail.png
-[public site]:  http://johntday.github.io/dbs-example-jpa-complex
+[My-JPA-annotation-documentation]: http://www.evernote.com/shard/s8/sh/147ea1ec-d9d2-46fd-a0d9-3d2b819703fb/8e476ca6950c7d6c9551dbcc54d8c7f3
+[Overview-ERD]: https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd.png
+[MySQL-ERD]: https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd-detail.png
+[public-site]:  http://johntday.github.io/dbs-example-jpa-complex
 [wiki]:  https://github.com/johntday/dbs-example-jpa-complex/wiki
 [CloudFoundry]:  http://docs.cloudfoundry.com/docs/dotcom/getting-started.html
 [CloudFoundry url]:  http://dbs-example-jpa-complex.cfapps.io
-[Spring Config XML to Java]:  http://www.evernote.com/shard/s8/sh/4748cf18-2c5b-4d48-b415-925182c6f15f/0a2883985b1682367bb09612c002fa8c
+[Spring-Config-XML-to-Java]:  http://www.evernote.com/shard/s8/sh/4748cf18-2c5b-4d48-b415-925182c6f15f/0a2883985b1682367bb09612c002fa8c
 [GitHub-cheat-sheet]:  http://johntday.github.io/GitHub/
+[My-CloudFoundry-dbs-development]:  https://console.run.pivotal.io/organizations/e743a212-1895-4cc1-91b2-cd959c806fdf/spaces/da84f92c-5b79-41b9-84d5-d9fe48515f71

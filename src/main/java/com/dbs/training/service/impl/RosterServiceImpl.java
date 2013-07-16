@@ -1,6 +1,8 @@
 package com.dbs.training.service.impl;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,9 +56,18 @@ public class RosterServiceImpl implements RosterService {
 	}
 
 	@Override
-	@Transactional
-	public List<Roster> findByClassinstanceId(int classinstanceId) {
-		return null;
+	@Transactional(readOnly = true)
+	public Map<String, String> getDropDownList() {
+		final String TEMPLATE = "%s %s %s";
+		List<Roster> rosterList = rosterRepository.findAll();
+
+		Map<String, String> roster = new LinkedHashMap<String, String>();
+		for (Roster c : rosterList) {
+			String enrolledOrAttended = (c.isAttendanceIndicator()) ? "attended" : "enrolled";
+			roster.put(c.getId().toString(),
+					String.format(TEMPLATE, c.getStudent().getUsername(), enrolledOrAttended, c.getClassinstance().getClss().getName()));
+		}
+		return roster;
 	}
 
 }
