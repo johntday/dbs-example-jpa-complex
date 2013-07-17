@@ -24,7 +24,7 @@
 </tr>
 <tr>
 	<td>Roster.attendanceIndicator *</td>
-	<td><form:input path="attendanceIndicator" /></td>
+	<td><form:checkbox path="attendanceIndicator" /></td>
 	<td><form:errors path="attendanceIndicator" cssStyle="color: red;"/></td>
 </tr>
 <tr>

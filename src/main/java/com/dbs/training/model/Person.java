@@ -34,27 +34,27 @@ public class Person implements Serializable {
 	@Column(name = "ACTIVE_IND", nullable = false)
 	private int					activeIndicator;
 
-	@Column(unique = true, nullable = false, length = 128)
+	@Column(name = "EMAIL", unique = true, nullable = false, length = 128)
 	private String				email;
 
-	@Column(nullable = false, length = 45)
+	@Column(name = "FIRSTNAME", nullable = false, length = 45)
 	private String				firstname;
 
-	@Column(nullable = false, length = 45)
+	@Column(name = "LASTNAME", nullable = false, length = 45)
 	private String				lastname;
 
-	@Column(nullable = false, length = 45)
+	@Column(name = "PASSWORD", nullable = false, length = 45)
 	private String				password;
 
 	@Column(name = "PHONE_SMS", precision = 10)
 	private BigDecimal			phoneSms;
 
-	@Column(unique = true, nullable = false, length = 45)
+	@Column(name = "USERNAME", unique = true, nullable = false, length = 45)
 	private String				username;
 
 	// uni-directional many-to-many association to ROLE
 	/* @formatter:off */
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.LAZY)
 	//@OrderColumn(name="ROLE_ID")
 	@JoinTable(
 		name="PERSONROLE"
@@ -71,8 +71,7 @@ public class Person implements Serializable {
 	@Override
 	public String toString() {
 		return new ToStringCreator(this).append("id", this.id).append("username", this.username).append("password", this.password)
-				.append("firstname", this.firstname).append("email", email).append("phoneSms", phoneSms).append("activeIndicator", activeIndicator)
-				.append("roles", roles).toString();
+				.append("firstname", this.firstname).append("email", email).append("phoneSms", phoneSms).append("activeIndicator", activeIndicator).toString();
 	}
 
 	public Person() {

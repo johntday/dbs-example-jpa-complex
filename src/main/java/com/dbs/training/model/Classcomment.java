@@ -24,6 +24,9 @@ public class Classcomment implements Serializable {
 	@Column(name = "CLASSCOMMENT_ID", unique = true, nullable = false)
 	private Integer				id;
 
+	// @Column(name = "ROSTER_ID", nullable = false, updatable = false)
+	// private Integer rosterId;
+
 	@Column(name = "CLASSCOMMENT_TX", nullable = false, length = 1024)
 	private String				comment;
 

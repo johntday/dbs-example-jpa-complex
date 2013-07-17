@@ -16,6 +16,9 @@
 	<th width="50px">id</th>
 	<td>attendanceIndicator</td>
 	<th>classinstance.clss.name</th>
+	<th>classinstance.dateTime</th>
+	<th>student.username</th>
+	<th>comments.size()</th>
 	<th>toString</th>
 	<th width="50px">action</th>
 </tr>
@@ -26,6 +29,9 @@
 	<td>${roster.id}</td>
 	<td>${roster.attendanceIndicator}</td>
 	<td>${roster.classinstance.clss.name}</td>
+	<td>${roster.classinstance.dateTime}</td>
+	<td>${roster.student.username}</td>
+	<td>${roster.comments.size()}</td>
 	<td><a href="${pageContext.request.contextPath}/roster/tostring/${roster.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/roster/edit/${roster.id}">Edit</a><br/>

@@ -29,7 +29,7 @@
 	<td><form:errors path="attendanceIndicator" cssStyle="color: red;"/></td>
 </tr>
 <tr>
-	<td><input type="submit" value="Create" /></td>
+	<td><input type="submit" value="Update" /></td>
 	<td></td>
 	<td></td>
 </tr>
@@ -38,31 +38,7 @@
 </form:form>
 <p>* ==> required field</p>
 
-<table style="text-align: center;" border="1px" cellpadding="0" cellspacing="0" >
-<thead>
-<tr>
-	<th width="50px">id</th>
-	<th>comment</th>
-	<th>score</th>
-	<th width="50px">action</th>
-</tr>
-</thead>
-<tbody>
-<c:forEach var="classcomment" items="${roster.comments}">
-<tr>
-	<td>${classcomment.id}</td>
-	<td>${classcomment.comment}</td>
-	<td>${classcomment.score}</td>
-	<td>
-		<a href="${pageContext.request.contextPath}/classcomment/create/${roster.id}">Create</a><br/>
-		<a href="${pageContext.request.contextPath}/classcomment/edit/${classcomment.id}">Edit</a><br/>
-		<a href="${pageContext.request.contextPath}/classcomment/delete/${classcomment.id}">Delete</a><br/>
-	</td>
-</tr>
-</c:forEach>
-</tbody>
-</table>
-
+<jsp:include page="classcomment-list.jsp"/>
 
 <a href="${pageContext.request.contextPath}/">Home page</a>
 </body>

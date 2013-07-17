@@ -36,7 +36,7 @@ public class Roster implements Serializable {
 	// uni-directional one-to-many association to Classcomment
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ROSTER_ID")
-	@OrderBy("ROSTER_ID asc")
+	@OrderBy("CLASSCOMMENT_ID asc")
 	private List<Classcomment>	comments;
 
 	// uni-directional many-to-one association to Classinstance

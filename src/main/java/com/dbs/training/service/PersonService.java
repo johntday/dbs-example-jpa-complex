@@ -10,4 +10,5 @@ public interface PersonService extends CrudService<Person> {
 
 	Map<String, String> findByRoleCodeDropDown(String roleCode);
 
+	public Person findByIdFull(int id);
 }

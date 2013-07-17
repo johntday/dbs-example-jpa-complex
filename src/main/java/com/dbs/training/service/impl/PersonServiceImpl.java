@@ -47,6 +47,16 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
+	public Person findByIdFull(int id) {
+		logger.debug("findByIdFull: id=" + id);
+		Person person = personRepository.findOne(id);
+		Set<Role> roles = person.getRoles();
+		logger.debug("findByIdFull: roles=" + roles);
+		return person;
+	}
+
+	@Override
 	@Transactional(rollbackFor = ObjectNotFound.class)
 	public Person delete(int id) throws ObjectNotFound {
 		logger.debug("delete: id=" + id);

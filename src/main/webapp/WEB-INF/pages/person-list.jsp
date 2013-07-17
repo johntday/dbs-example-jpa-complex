@@ -20,7 +20,6 @@
 	<th>lastname</th>
 	<th>phoneSms</th>
 	<th>active</th>
-	<th>roles</th>
 	<th>toString</th>
 	<th>action</th>
 </tr>
@@ -35,7 +34,6 @@
 	<td>${person.lastname}</td>
 	<td>${person.phoneSms}</td>
 	<td>${person.activeIndicator}</td>
-	<td>${person.displayRoleNames()}</td>
 	<td><a href="${pageContext.request.contextPath}/person/tostring/${person.id}">toString</a></td>
 	<td>
 		<a href="${pageContext.request.contextPath}/person/edit/${person.id}">Edit</a><br/>

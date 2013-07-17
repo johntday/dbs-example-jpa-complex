@@ -3,14 +3,12 @@
  */
 package com.dbs.training.util;
 
-
 /**
  * Utilities.
  * 
  * @author John T Day
- * 
  */
-public class Utils {
+public abstract class Utils {
 
 	/**
 	 * Unwind messages from Throwable.

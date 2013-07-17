@@ -7,7 +7,9 @@ import org.springframework.beans.propertyeditors.CustomCollectionEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.dbs.training.model.Person;
 import com.dbs.training.model.Role;
@@ -78,6 +80,16 @@ public class PersonController extends AbstractCrudController<Person> {
 	@Override
 	protected PersonService getCrudService() {
 		return entityService;
+	}
+
+	@Override
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public ModelAndView editEntityPage(@PathVariable Integer id) {
+		logger.debug("editEntityPage: id=" + id);
+		ModelAndView mav = getDropDowns(new ModelAndView(getName() + "-edit"));
+		Person entity = getCrudService().findByIdFull(id);
+		mav.addObject(getName(), entity);
+		return mav;
 	}
 
 }
