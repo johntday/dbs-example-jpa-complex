@@ -24,22 +24,6 @@ public abstract class AbstractCrudController<T> {
 	protected static final String	MESSAGE_FORMAT_SUCCESS	= "Successfully %s <br/> %s";
 	protected static final String	MESSAGE_FORMAT_ERROR	= "Error with %s <br/> %s";
 
-	// @Autowired
-	// protected S getCrudService();
-
-	// @Autowired
-	// protected V dtoValidator;
-	//
-	// @InitBinder
-	// private void initBinder(WebDataBinder binder) {
-	// logger.debug("initBinder: binder=" + binder);
-	// binder.setValidator(dtoValidator);
-	// moreInitBinder(binder);
-	// }
-	//
-	// protected void moreInitBinder(WebDataBinder binder) {
-	// }
-
 	@RequestMapping(value = "/tostring/{id}", method = RequestMethod.GET)
 	public ModelAndView toStringPage(@PathVariable Integer id) {
 		logger.debug("toStringPage: id=" + id);
@@ -69,7 +53,6 @@ public abstract class AbstractCrudController<T> {
 		String message = null;
 
 		try {
-			preCreateEntity(entity);
 			T createdEntity = getCrudService().create(entity);
 			message = String.format(MESSAGE_FORMAT_SUCCESS, "created", createdEntity.toString());
 		} catch (Throwable e) {
@@ -110,8 +93,12 @@ public abstract class AbstractCrudController<T> {
 		String message = null;
 
 		try {
-			preEditEntity(entity);
-			T updatedEntity = getCrudService().update(entity);
+			T beforeUpdateEntity = getCrudService().findById(id);
+			logger.debug("editEntity: beforeUpdateEntity=" + beforeUpdateEntity);
+			T mergedEntity = mergeEditEntity(entity, beforeUpdateEntity);
+			logger.debug("editEntity: mergedEntity=" + mergedEntity);
+			T updatedEntity = getCrudService().update(mergedEntity);
+			logger.debug("editEntity: updatedEntity=" + updatedEntity);
 			message = String.format(MESSAGE_FORMAT_SUCCESS, "updated", updatedEntity.toString());
 		} catch (ObjectNotFound e) {
 			logger.error("editEntity: Not entity found with id=" + id);
@@ -171,18 +158,18 @@ public abstract class AbstractCrudController<T> {
 	protected abstract CrudService<T> getCrudService();
 
 	/**
-	 * Do any entity changes before sending to service for create.
+	 * Do any merging between (1) input entity and (2) fetched database entity
+	 * before sending to service for update. Default is to return
+	 * <code>inputEntity</code>.
 	 * 
-	 * @param entity
+	 * @param inputEntity
+	 *            input entity.
+	 * @param fetchedEntity
+	 *            value fetched from database.
+	 * @return merged entity.
 	 */
-	protected void preCreateEntity(T entity) {
+	protected T mergeEditEntity(T inputEntity, T fetchedEntity) {
+		return inputEntity;
 	}
 
-	/**
-	 * Do any entity changes before sending to service for update.
-	 * 
-	 * @param entity
-	 */
-	protected void preEditEntity(T entity) {
-	}
 }

@@ -29,3 +29,11 @@ body {
     padding: 8px;
     margin: 16px;
 }
+
+.hidden {
+    display: none;
+}
+
+.pagination-clear {
+    clear: both;
+}

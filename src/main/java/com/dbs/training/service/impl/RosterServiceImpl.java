@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.dbs.training.exception.ObjectNotFound;
+import com.dbs.training.model.Classcomment;
 import com.dbs.training.model.Roster;
 import com.dbs.training.repository.RosterRepository;
 import com.dbs.training.service.RosterService;
@@ -68,6 +69,14 @@ public class RosterServiceImpl implements RosterService {
 					String.format(TEMPLATE, c.getStudent().getUsername(), enrolledOrAttended, c.getClassinstance().getClss().getName()));
 		}
 		return roster;
+	}
+
+	@Override
+	@Transactional(rollbackFor = ObjectNotFound.class)
+	public Roster addComment(int id, Classcomment classcomment) throws ObjectNotFound {
+		Roster roster = rosterRepository.findOne(id);
+		roster.addClasscomments(classcomment);
+		return rosterRepository.save(roster);
 	}
 
 }

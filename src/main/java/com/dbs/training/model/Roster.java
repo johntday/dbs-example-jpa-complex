@@ -2,6 +2,7 @@ package com.dbs.training.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,8 +35,8 @@ public class Roster implements Serializable {
 	private boolean				attendanceIndicator;
 
 	// uni-directional one-to-many association to Classcomment
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ROSTER_ID")
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@JoinColumn(name = "ROSTER_ID", referencedColumnName = "ROSTER_ID")
 	@OrderBy("CLASSCOMMENT_ID asc")
 	private List<Classcomment>	comments;
 
