@@ -43,7 +43,7 @@ From the command line with Maven:
 
 **or**
 
-### In your preferred IDE such as SpringSource Tool Suite (STS):
+*In your preferred IDE such as SpringSource Tool Suite (STS)*
 
 * Import "dbs-example-jpa-complex" as a Maven Project
 * Drag-n-drop the project onto the "SpringSource tc Server Developer Edition" or another Servlet 2.5 or > Server to run, such as Tomcat.
