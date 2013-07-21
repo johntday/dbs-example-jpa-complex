@@ -18,7 +18,7 @@
 					<th width="50px">floor</th>
 					<th width="50px">numberOfSeats</th>
 					<th>toString</th>
-					<th width="50px">action</th>
+					<th>action</th>
 				</tr>
 			</thead>
 			<tbody>

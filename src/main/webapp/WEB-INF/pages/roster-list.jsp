@@ -19,7 +19,7 @@
 					<th>student.username</th>
 					<th>comments.size()</th>
 					<th>toString</th>
-					<th width="50px">action</th>
+					<th>action</th>
 				</tr>
 			</thead>
 			<tbody>
