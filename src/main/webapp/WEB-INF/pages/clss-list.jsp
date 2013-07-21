@@ -17,7 +17,7 @@
 					<th>name</th>
 					<th>description</th>
 					<th>toString</th>
-					<th width="50px">action</th>
+					<th>action</th>
 				</tr>
 			</thead>
 			<tbody>

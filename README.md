@@ -7,9 +7,7 @@ App is deployed to [dbs-example-jpa-complex][CloudFoundry url].
 Documentation:
 -------------------
  * [wiki][wiki]
- * Database diagrams:
-   * [Overview ERD][Overview-ERD]
-   * [MySQL ERD][MySQL-ERD]
+ * [Database diagrams][database-diagrams]
 
 References:
 -------------------
@@ -63,5 +61,6 @@ Access the deployed web application at: http://localhost:8080/dbs-example-jpa-co
 [Spring-Config-XML-to-Java]:  http://www.evernote.com/shard/s8/sh/4748cf18-2c5b-4d48-b415-925182c6f15f/0a2883985b1682367bb09612c002fa8c
 [GitHub-cheat-sheet]:  http://johntday.github.io/GitHub/
 [My-CloudFoundry-dbs-development]:  https://console.run.pivotal.io/organizations/e743a212-1895-4cc1-91b2-cd959c806fdf/spaces/da84f92c-5b79-41b9-84d5-d9fe48515f71
-[SpringSourceDev-YouTube][http://www.youtube.com/SpringSourceDev]
-[JPA-One-to-Many][http://www.evernote.com/shard/s8/sh/1d1e797a-ffce-4dbb-a4dd-53470adbf1ce/d3a2e3f1876dfed9dac6a90bf4b7804e]
+[SpringSourceDev-YouTube]:  http://www.youtube.com/SpringSourceDev
+[JPA-One-to-Many]:  http://www.evernote.com/shard/s8/sh/1d1e797a-ffce-4dbb-a4dd-53470adbf1ce/d3a2e3f1876dfed9dac6a90bf4b7804e
+[database-diagrams]:  https://github.com/johntday/dbs-example-jpa-complex/tree/master/src/main/webapp/static/img
