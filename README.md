@@ -2,7 +2,7 @@ dbs-example-jpa-complex
 -------------------
 Example of complex Spring Data JPA application.  Hibernate is used as JPA implementation.
 
-App is deployed to [dbs-example-jpa-complex][CloudFoundry url].
+App is deployed to [dbs-example-jpa-complex][CloudBees-deployed-url].
 
 Documentation
 -------------------
@@ -13,7 +13,7 @@ References
 -------------------
  * [public site for dbs-example-jpa-complex][public-site]
  * [JPA annotation documentation][My-JPA-annotation-documentation]
- * [Cloud Foundry deployment][CloudFoundry]
+ * [CloudBees Java Cloud Platorm][CloudBees]
  * [Using Spring Java/Annotation Config instead of XML][Spring-Config-XML-to-Java]
  * [GitHub configuration and settings cheat sheet][GitHub-cheat-sheet]
  * [My CloudFoundry DBS Development environment][My-CloudFoundry-dbs-development]
@@ -55,8 +55,8 @@ Access the deployed web application at: http://localhost:8080/dbs-example-jpa-co
 [MySQL-ERD]: https://github.com/johntday/dbs-example-jpa-complex/blob/master/src/main/resources/img/erd-detail.png
 [public-site]:  http://johntday.github.io/dbs-example-jpa-complex
 [wiki]:  https://github.com/johntday/dbs-example-jpa-complex/wiki
-[CloudFoundry]:  http://docs.cloudfoundry.com/docs/dotcom/getting-started.html
-[CloudFoundry url]:  http://dbs-example-jpa-complex.cfapps.io
+[CloudBees]:  http://www.cloudbees.com/
+[CloudBees-deployed-url]:  http://dbs-example-jpa-complex2.johntday.cloudbees.net/
 [Spring-Config-XML-to-Java]:  http://www.evernote.com/shard/s8/sh/4748cf18-2c5b-4d48-b415-925182c6f15f/0a2883985b1682367bb09612c002fa8c
 [GitHub-cheat-sheet]:  http://johntday.github.io/GitHub/
 [My-CloudFoundry-dbs-development]:  https://console.run.pivotal.io/organizations/e743a212-1895-4cc1-91b2-cd959c806fdf/spaces/da84f92c-5b79-41b9-84d5-d9fe48515f71
