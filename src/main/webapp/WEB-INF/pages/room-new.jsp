@@ -9,40 +9,43 @@
 	<body>
 		<h1>New Room page</h1>
 		<form:form method="POST" commandName="room" action="${pageContext.request.contextPath}/room/create">
-			<table>
-				<tbody>
-					<tr>
-						<td>Room.code *</td>
-						<td><form:input path="code" /></td>
-						<td><form:errors path="code" cssStyle="color: red;" /></td>
-					</tr>
-					<tr>
-						<td>Room.name *</td>
-						<td><form:input path="name" /></td>
-						<td><form:errors path="name" cssStyle="color: red;" /></td>
-					</tr>
-					<tr>
-						<td>Room.description *</td>
-						<td><form:input path="description" /></td>
-						<td><form:errors path="description" cssStyle="color: red;" /></td>
-					</tr>
-					<tr>
-						<td>Room.floor *</td>
-						<td><form:input path="floor" /></td>
-						<td><form:errors path="floor" cssStyle="color: red;" /></td>
-					</tr>
-					<tr>
-						<td>Room.numberOfSeats *</td>
-						<td><form:input path="numberOfSeats" /></td>
-						<td><form:errors path="numberOfSeats" cssStyle="color: red;" /></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="Create" /></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
+			<fieldset>
+				<legend>Room</legend>
+				<table>
+					<tbody>
+						<tr>
+							<td>code *</td>
+							<td><form:input path="code" /></td>
+							<td><form:errors path="code" cssStyle="color: red;" /></td>
+						</tr>
+						<tr>
+							<td>name *</td>
+							<td><form:input path="name" /></td>
+							<td><form:errors path="name" cssStyle="color: red;" /></td>
+						</tr>
+						<tr>
+							<td>description *</td>
+							<td><form:input path="description" /></td>
+							<td><form:errors path="description" cssStyle="color: red;" /></td>
+						</tr>
+						<tr>
+							<td>floor *</td>
+							<td><form:input path="floor" /></td>
+							<td><form:errors path="floor" cssStyle="color: red;" /></td>
+						</tr>
+						<tr>
+							<td>numberOfSeats *</td>
+							<td><form:input path="numberOfSeats" /></td>
+							<td><form:errors path="numberOfSeats" cssStyle="color: red;" /></td>
+						</tr>
+						<tr>
+							<td><input type="submit" value="Create" /></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>
 		</form:form>
 		
 		<a href="${pageContext.request.contextPath}/">Home page</a>
