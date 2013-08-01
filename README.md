@@ -16,6 +16,7 @@ References
  * [CloudBees Java Cloud Platorm][CloudBees]
  * [Using Spring Java/Annotation Config instead of XML][Spring-Config-XML-to-Java]
  * [GitHub configuration and settings cheat sheet][GitHub-cheat-sheet]
+ * [My CloudFoundry DBS Development environment][My-CloudFoundry-dbs-development]
  * [Spring Framework Developer Community YouTube videos][SpringSourceDev-YouTube]
  * [JPA One-to-Many][JPA-One-to-Many]
 
